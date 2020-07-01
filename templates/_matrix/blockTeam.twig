@@ -1,0 +1,39 @@
+<div class="site-padding bg-purple-lighter">
+  <div class="md:text-center md:mx-auto max-w-ems-md pb-site-md lg:pb-grid-gap">
+    <h2 class="t-lg text-purple pb-site-ems-sm">{{ block.fieldHead }}</h2>
+    <div class="wysiwyg">{{ block.fieldRedactor }}</div>
+  </div>
+
+
+  {% set primaryContent = '' %}
+  {% set secondaryContent = '' %}
+  {% for row in block.fieldTeamTable.all() %}
+    
+    {% set primary = row.colPriority == 'primary' ? true : false %}
+    
+    {% set content %}
+      <div class="c-team-item t-sm text-center pb-site-md {{ primary ? 'primary' : 'secondary' }}">
+        <div class="c-team-item-image mx-auto">
+          {% include '_includes/srcset' with { image: row.colImageAsset[0], class: 'u-circle w-full h-auto', crop: '1:1' } %}
+        </div>
+        <h3 class="font-bold pt-site-ems-sm">{{ row.colName }}</h3>
+        <p>{{ row.colText }}</p>
+      </div>
+    {% endset %}
+
+    {% if primary %}
+      {% set primaryContent = primaryContent ~ content %}
+    {% else %}
+      {% set secondaryContent = secondaryContent ~ content %}
+    {% endif %}    
+
+  {% endfor %}
+
+  <div class="flex flex-wrap justify-center -mb-site-md pb-site-md lg:site-padding-b">
+    {{ primaryContent|raw }}
+  </div>
+  <div class="flex flex-wrap justify-center -mb-site-md">
+    {{ secondaryContent|raw }}
+  </div>
+  
+</div>

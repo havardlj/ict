@@ -16,21 +16,22 @@
   --site-lg: 4rem;
   --site-xl: 5rem;
 
-  --site-ems-sm: 1em;
+  --site-ems-xs: .33em;
+  --site-ems-sm: .66em;
   --site-ems-md: 1.4em;
 
   --container-spacing-x: 2rem;
-  --container-spacing-y: 5rem;
+  --container-spacing-y: 3rem;
   @screen lg {
     --container-spacing-x: 2.5rem;
-    --container-spacing-y: 3.75rem;
+    --container-spacing-y: 4rem;
   }
 
   --grid-gap-x: 1.3rem;
-  --grid-gap-y: 1.2rem;
-  @screen md {
-    --grid-gap-x: 1.5rem;
-    --grid-gap-y: 1.4rem;
+  --grid-gap-y: 1.33rem; /*1.2*/
+  @screen lg {
+    --grid-gap-x: 1.6rem;
+    --grid-gap-y: 1.875rem; /*1.4*/
   }
   
 }

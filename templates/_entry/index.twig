@@ -4,27 +4,13 @@
   <div class="c-splash bg-grey-lighter site-padding-x py-site-sm flex items-end sm:justify-center sm:items-center">
     <div class="t-lg wysiwyg max-w-ems-xs sm:text-center">{{ entry.fieldLead }}</div>
   </div>
+  <div id="tech"></div>
 
-  {% for block in entry.fieldContentMatrix.all() %}
-    
-    {% if block.type == 'blockImageText' %}
+  {% set entryMatrix = entry.fieldContentMatrix %}
+  {% if entryMatrix %}
+    {% set articleMatrix = true %}
+    {% include '_matrix' with { matrix: entryMatrix.all() } %}
+  {% endif %}
 
-      <div class="site-padding u-grid">
-
-        {% for row in block.fieldImageTextTable.all() %}
-          <div class="col-12 lg:gsp-6 {{ row.colOrder == 'imageText' ? 'lg:order-last' }}">
-            <h2>{{ block.title }}</h2>
-            <div class="wysiwyg">{{ block.fieldRedactor }}</div>
-          </div>
-          <div class="col-12 lg:gsp-6 {{ row.colOrder == 'imageText' ? 'lg:order-first' }}">
-            {% include '_includes/srcset' with { image: row.colImage[0], class: 'w-full h-auto' } %}
-          </div>
-        {% endfor %}
-
-      </div>
-
-    {% endif %}
-    
-  {% endfor %}
 
 {% endblock %}

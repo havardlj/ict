@@ -1,7 +1,7 @@
 @import 'utils/index';
 @import 'vars';
 @import 'typo';
-/* @import 'https://unpkg.com/swiper@5.3.1/css/swiper.min.css'; */
+@import 'https://unpkg.com/swiper@5.3.1/css/swiper.min.css';
 
 html {
   scroll-behavior: smooth;
@@ -18,8 +18,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .c-splash {
-  height: 85vh;
-  min-height: 20rem;
+  height: 90vh;
+  min-height: 24rem;
+}
+
+.c-team-item {
+  margin: 0 1rem;
+  width: 10em;
+  .c-team-item-image { width: 8em }
+  @screen lg {
+    &.primary {
+      width: 12em;
+      .c-team-item-image { width: 10em }
+    }
+  }
 }
 
 /* purgecss start ignore */

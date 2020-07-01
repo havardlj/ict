@@ -1,0 +1,18 @@
+<div class="site-padding u-grid u-lg:no-gap">
+
+  {% for row in block.fieldImageTextTable.all() %}
+    {% set order = row.colOrder %}
+    
+    <div class="gsp-12 u-grid {{ loop.last ? : 'u-lg:site-padding-b' }}">
+      <div class="gsp-12 sm:gs-2 sm:gsp-10 md:gs-3 md:gsp-8 lg:gs-auto lg:gsp-5 xl:gsp-4 {{ order == 'textImage' ? 'xl:gs-2' : 'lg:order-last' }} lg:py-site-sm xl:py-site-md">
+        <h2 class="t-lg text-purple pb-site-ems-sm lg:pb-site-ems-xs">{{ row.colHead }}</h2>
+        <div class="wysiwyg">{{ row.colRedactor }}</div>
+      </div>
+      <div class="gsp-12 sm:gs-2 sm:gsp-10 md:gs-3 md:gsp-8 lg:gs-auto lg:gsp-7">
+        {% include '_includes/srcset' with { image: row.colImageAsset[0], class: 'w-full h-auto', crop: '5:4' } %}
+      </div>
+    </div>
+
+  {% endfor %}
+
+</div>

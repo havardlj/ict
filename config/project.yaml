@@ -1,4 +1,4 @@
-dateModified: 1593602403
+dateModified: 1593637972
 email:
   fromEmail: $POSTMARK_EMAIL
   fromName: TKV
@@ -770,9 +770,9 @@ matrixBlockTypes:
       249211f4-7b75-46b5-aab8-b030a6b3a8f9:
         contentColumnType: string
         fieldGroup: null
-        handle: fieldPartnerTable
+        handle: fieldPartnersTable
         instructions: ''
-        name: Partner
+        name: Innhold
         searchable: true
         settings:
           columns:
@@ -791,12 +791,12 @@ matrixBlockTypes:
                     -
                       - width
                       - ''
-          contentTable: '{{%stc_7_fieldpartnertable}}'
+          contentTable: '{{%stc_7_fieldpartnerstable}}'
           fieldLayout: row
           maxRows: ''
           minRows: ''
           propagationMethod: all
-          selectionLabel: ''
+          selectionLabel: 'Legg til partner'
           staticField: ''
         translationKeyFormat: null
         translationMethod: site
@@ -1095,7 +1095,7 @@ matrixBlockTypes:
         fieldGroup: null
         handle: fieldTeamTable
         instructions: ''
-        name: Team
+        name: Innhold
         searchable: true
         settings:
           columns:
@@ -1189,125 +1189,60 @@ matrixBlockTypes:
         tabs:
           -
             fields:
-              056dbf47-f8cf-4519-9fc8-f7dfd02b9e52:
+              68f95c84-44f5-4582-a98d-208d99a4761a:
                 required: false
                 sortOrder: 1
-              08d26985-db99-4a6f-b302-d81774e575b2:
-                required: false
-                sortOrder: 3
-              803f0026-4172-4add-b692-612077b95606:
-                required: false
-                sortOrder: 2
-              88765a18-4681-4af4-a723-56cdc1c23a2d:
-                required: false
-                sortOrder: 4
             name: Content
             sortOrder: 1
     fields:
-      056dbf47-f8cf-4519-9fc8-f7dfd02b9e52:
+      68f95c84-44f5-4582-a98d-208d99a4761a:
         contentColumnType: string
         fieldGroup: null
-        handle: fieldImageAsset
+        handle: fieldImageTextTable
         instructions: ''
-        name: Bilde
+        name: Innhold
         searchable: true
         settings:
-          allowSelfRelations: ''
-          allowedKinds: null
-          defaultUploadLocationSource: 'volume:9c115261-b0d0-4af1-ae62-c3b9b238731d'
-          defaultUploadLocationSubpath: ''
-          limit: '1'
-          localizeRelations: false
-          restrictFiles: ''
-          selectionLabel: 'Velg bilde'
-          showUnpermittedFiles: false
-          showUnpermittedVolumes: false
-          singleUploadLocationSource: 'volume:9c115261-b0d0-4af1-ae62-c3b9b238731d'
-          singleUploadLocationSubpath: ''
-          source: null
-          sources: '*'
-          targetSiteId: null
-          useSingleFolder: false
-          validateRelatedElements: ''
-          viewMode: large
+          columns:
+            __assoc__:
+              -
+                - f82adf4e-6549-4e13-aaf3-d5af496e649c
+                -
+                  __assoc__:
+                    -
+                      - width
+                      - ''
+              -
+                - 7ac59e4a-60a9-4634-9ce9-c8c9c709ddf6
+                -
+                  __assoc__:
+                    -
+                      - width
+                      - ''
+              -
+                - 70e2176b-ceda-4a00-b632-1e50b4ef21ba
+                -
+                  __assoc__:
+                    -
+                      - width
+                      - ''
+              -
+                - 1fd8f3ba-5e21-44db-b8a2-243526f22caf
+                -
+                  __assoc__:
+                    -
+                      - width
+                      - ''
+          contentTable: '{{%stc_5_fieldimagetexttable}}'
+          fieldLayout: matrix
+          maxRows: ''
+          minRows: ''
+          propagationMethod: all
+          selectionLabel: ''
+          staticField: ''
         translationKeyFormat: null
         translationMethod: site
-        type: craft\fields\Assets
-      08d26985-db99-4a6f-b302-d81774e575b2:
-        contentColumnType: text
-        fieldGroup: null
-        handle: fieldRedactor
-        instructions: ''
-        name: 'Rik tekst'
-        searchable: true
-        settings:
-          availableTransforms: '*'
-          availableVolumes: '*'
-          cleanupHtml: true
-          columnType: text
-          purifierConfig: ''
-          purifyHtml: '1'
-          redactorConfig: Matrix.json
-          removeEmptyTags: '1'
-          removeInlineStyles: '1'
-          removeNbsp: '1'
-          showUnpermittedFiles: false
-          showUnpermittedVolumes: false
-        translationKeyFormat: null
-        translationMethod: none
-        type: craft\redactor\Field
-      803f0026-4172-4add-b692-612077b95606:
-        contentColumnType: text
-        fieldGroup: null
-        handle: fieldHead
-        instructions: ''
-        name: Overskrift
-        searchable: true
-        settings:
-          byteLimit: null
-          charLimit: null
-          code: ''
-          columnType: null
-          initialRows: '4'
-          multiline: ''
-          placeholder: ''
-        translationKeyFormat: null
-        translationMethod: none
-        type: craft\fields\PlainText
-      88765a18-4681-4af4-a723-56cdc1c23a2d:
-        contentColumnType: string
-        fieldGroup: null
-        handle: fieldOrder
-        instructions: ''
-        name: Rekkefølge
-        searchable: true
-        settings:
-          options:
-            -
-              __assoc__:
-                -
-                  - label
-                  - Bilde/tekst
-                -
-                  - value
-                  - imageText
-                -
-                  - default
-                  - '1'
-            -
-              __assoc__:
-                -
-                  - label
-                  - Tekst/bilde
-                -
-                  - value
-                  - textImage
-                -
-                  - default
-                  - ''
-        translationKeyFormat: null
-        translationMethod: none
-        type: craft\fields\RadioButtons
+        type: verbb\supertable\fields\SuperTableField
     handle: blockImageText
     name: Bilde/tekst
     sortOrder: 1
@@ -1358,7 +1293,7 @@ matrixBlockTypes:
         fieldGroup: null
         handle: fieldTimelineTable
         instructions: ''
-        name: Fase
+        name: Innhold
         searchable: true
         settings:
           columns:
@@ -1389,7 +1324,7 @@ matrixBlockTypes:
           maxRows: ''
           minRows: ''
           propagationMethod: all
-          selectionLabel: ''
+          selectionLabel: 'Legg til fase'
           staticField: ''
         translationKeyFormat: null
         translationMethod: site
@@ -1583,6 +1518,132 @@ sites:
     siteGroup: 387f8bff-8e47-482b-8ba8-fde4a8a1dbe2
     sortOrder: 1
 superTableBlockTypes:
+  2be3ea58-816b-4d3a-93ee-d94474c55751:
+    field: 68f95c84-44f5-4582-a98d-208d99a4761a
+    fieldLayouts:
+      38c7cd58-28c0-4fac-b558-c2706e4e9cfd:
+        tabs:
+          -
+            fields:
+              1fd8f3ba-5e21-44db-b8a2-243526f22caf:
+                required: false
+                sortOrder: 4
+              70e2176b-ceda-4a00-b632-1e50b4ef21ba:
+                required: false
+                sortOrder: 3
+              7ac59e4a-60a9-4634-9ce9-c8c9c709ddf6:
+                required: false
+                sortOrder: 2
+              f82adf4e-6549-4e13-aaf3-d5af496e649c:
+                required: false
+                sortOrder: 1
+            name: Content
+            sortOrder: 1
+    fields:
+      1fd8f3ba-5e21-44db-b8a2-243526f22caf:
+        contentColumnType: string
+        fieldGroup: null
+        handle: colOrder
+        instructions: ''
+        name: Rekkefølge
+        searchable: true
+        settings:
+          options:
+            -
+              __assoc__:
+                -
+                  - label
+                  - Tekst/bilde
+                -
+                  - value
+                  - textImage
+                -
+                  - default
+                  - '1'
+            -
+              __assoc__:
+                -
+                  - label
+                  - Bilde/tekst
+                -
+                  - value
+                  - imageText
+                -
+                  - default
+                  - ''
+        translationKeyFormat: null
+        translationMethod: none
+        type: craft\fields\RadioButtons
+      70e2176b-ceda-4a00-b632-1e50b4ef21ba:
+        contentColumnType: string
+        fieldGroup: null
+        handle: colImageAsset
+        instructions: ''
+        name: Bilde
+        searchable: true
+        settings:
+          allowSelfRelations: ''
+          allowedKinds: null
+          defaultUploadLocationSource: 'volume:9c115261-b0d0-4af1-ae62-c3b9b238731d'
+          defaultUploadLocationSubpath: ''
+          limit: '1'
+          localizeRelations: false
+          restrictFiles: ''
+          selectionLabel: 'Velg bilde'
+          showUnpermittedFiles: false
+          showUnpermittedVolumes: false
+          singleUploadLocationSource: 'volume:9c115261-b0d0-4af1-ae62-c3b9b238731d'
+          singleUploadLocationSubpath: ''
+          source: null
+          sources: '*'
+          targetSiteId: null
+          useSingleFolder: false
+          validateRelatedElements: ''
+          viewMode: large
+        translationKeyFormat: null
+        translationMethod: site
+        type: craft\fields\Assets
+      7ac59e4a-60a9-4634-9ce9-c8c9c709ddf6:
+        contentColumnType: text
+        fieldGroup: null
+        handle: colRedactor
+        instructions: ''
+        name: 'Rik tekst'
+        searchable: true
+        settings:
+          availableTransforms: '*'
+          availableVolumes: '*'
+          cleanupHtml: true
+          columnType: text
+          purifierConfig: ''
+          purifyHtml: '1'
+          redactorConfig: Matrix.json
+          removeEmptyTags: '1'
+          removeInlineStyles: '1'
+          removeNbsp: '1'
+          showUnpermittedFiles: false
+          showUnpermittedVolumes: false
+        translationKeyFormat: null
+        translationMethod: none
+        type: craft\redactor\Field
+      f82adf4e-6549-4e13-aaf3-d5af496e649c:
+        contentColumnType: text
+        fieldGroup: null
+        handle: colHead
+        instructions: ''
+        name: Overskrift
+        searchable: true
+        settings:
+          byteLimit: null
+          charLimit: null
+          code: ''
+          columnType: null
+          initialRows: '4'
+          multiline: ''
+          placeholder: ''
+        translationKeyFormat: null
+        translationMethod: none
+        type: craft\fields\PlainText
   3e3af514-db1d-40cb-acbb-7f445e7a3648:
     field: 9165b645-7802-4f8f-83eb-917c91e19ffc
     fieldLayouts:
@@ -1662,7 +1723,7 @@ superTableBlockTypes:
           code: ''
           columnType: null
           initialRows: '4'
-          multiline: ''
+          multiline: '1'
           placeholder: ''
         translationKeyFormat: null
         translationMethod: none
@@ -1807,7 +1868,7 @@ superTableBlockTypes:
       30771a6e-c6db-4fb7-a325-7ba65a2bc204:
         contentColumnType: text
         fieldGroup: null
-        handle: fieldUrl
+        handle: colUrl
         instructions: ''
         name: Web-adresse
         searchable: true
@@ -1825,7 +1886,7 @@ superTableBlockTypes:
       8e4ea49a-9b75-4669-8bc0-ac75dbbc36a4:
         contentColumnType: string
         fieldGroup: null
-        handle: fieldImageAsset
+        handle: colImageAsset
         instructions: ''
         name: Bilde
         searchable: true

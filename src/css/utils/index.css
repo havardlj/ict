@@ -142,7 +142,7 @@ img {
       margin-$(side): calc(-1 * var(--box-spacing-$(axis)))
     }
 
-    @each $size in (xs, sm, md, lg, xl, 2xl, ems-sm, ems-md, ems-lg) {
+    @each $size in (xs, sm, md, lg, xl, 2xl, ems-xs, ems-sm, ems-md, ems-lg) {
       .p-site-$(size),
       .p$(s)-site-$(size),
       .p$(axis)-site-$(size) {

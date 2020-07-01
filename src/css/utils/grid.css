@@ -4,20 +4,23 @@
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-areas: "c1 c2 c3 c4 c5 c6 c7 c8 c9 c10 c11 c12";
-    grid-auto-rows: minmax(0, max-content);
-    &.g-gap,
-    &.g-gap-y {
-      grid-row-gap: var(--grid-gap-y);
-    }
-
-    &.g-gap,
-    &.g-gap-x {
-      grid-auto-rows: minmax(var(--grid-gap-x), max-content);
-      grid-column-gap: var(--grid-gap-x);
-    }
+    grid-auto-rows: minmax(var(--grid-gap-x), max-content);
+    grid-column-gap: var(--grid-gap-x);
+    grid-row-gap: var(--grid-gap-y);
+    
     &.g-center { align-items: center }
     &.g-end { align-items: end }
     .u-grid { /* grid-row: c1-start / c1-end; */ }
+  }
+
+  .no-gap,
+  .no-gap-y {
+    grid-row-gap: 0;
+  }
+  .no-gap,
+  .no-gap-x {
+    grid-auto-rows: minmax(0, max-content);
+    grid-column-gap: 0;
   }
 
   .gs-auto { grid-column-start: auto }

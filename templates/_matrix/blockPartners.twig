@@ -1,0 +1,19 @@
+<div class="site-padding" id="partners">
+  <div class="md:text-center md:mx-auto max-w-ems-md pb-site-md lg:pb-grid-gap">
+    <h2 class="t-lg text-purple pb-site-ems-sm">{{ block.fieldHead }}</h2>
+    <div class="wysiwyg">{{ block.fieldRedactor }}</div>
+  </div>
+  <div class="u-grid">
+
+    {% for row in block.fieldPartnersTable.all() %}
+      <div class="gsp-12 sm:gsp-6 md:gsp-4 lg:gsp-3">
+        <a class="u-box-3:2 relative" href="{{ row.colUrl }}">
+          <div class="absolute inset-0 bg-grey-lighter p-site-xs">
+            {% include '_includes/srcset' with { image: row.colImageAsset[0], class: 'object-contain w-full h-full' } %}
+          </div>
+        </a>
+      </div>
+    {% endfor %}
+  
+  </div>
+</div>

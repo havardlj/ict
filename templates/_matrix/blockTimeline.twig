@@ -1,0 +1,47 @@
+<div class="site-padding bg-purple-lighter" id="timeline">
+  
+  <div class="md:text-center md:mx-auto max-w-ems-md pb-site-md lg:pb-grid-gap">
+    <h2 class="t-lg text-purple pb-site-ems-sm">{{ block.fieldHead }}</h2>
+    <div class="wysiwyg">{{ block.fieldRedactor }}</div>
+  </div>
+
+  {% set timelineTable = block.fieldTimelineTable %}
+
+  {% set content %}
+    {% for row in timelineTable.all() %}
+      <div data-swiper-class="swiper-slide w-64 pr-gap" data-grid-class="gsp-3 flex flex-col">
+        <h3 class="relative text-purple text-center px-site-sm h-ems-10 mb-ems-4 flex items-center">
+          <span>{{ row.colHead|nl2br }}</span>
+          
+          {% if not loop.last %}
+            <div class="absolute inset-m right-0">
+              <div class="absolute inset-m left-0">
+                <svg class="fill-current h-ems-3 w-auto" viewBox="0 0 35 25" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0.643372 11.0801V14.7281H27.1394V15.7841L17.9234 25.0001H22.8674L34.9154 12.9041L22.8674 0.808105H17.9234L27.1394 10.0241V11.0801H0.643372Z"/>
+                </svg>
+              </div>
+            </div>
+          {% endif %}
+
+        </h3>
+        {% include '_includes/srcset' with { image: row.colImageAsset[0], class: 'w-full h-auto', crop: '3:2' } %}
+        <div class="flex-1 t-sm bg-white p-site-ems-md">{{ row.colText|nl2br }}</div>
+      </div>
+    {% endfor %}
+  {% endset %}
+
+  <div class="{{ timelineTable|length < 5 ? 'xl:hidden' }} swiper-container overflow-visible -mr-gap">
+    <div class="swiper-wrapper">
+      {{ content|replace({ 'data-swiper-class': 'class' })|raw }}
+    </div>
+  </div>
+
+  {% if timelineTable|length < 5 %}
+
+    <div class="u-xl:hidden u-grid">
+      {{ content|replace({ 'data-grid-class': 'class' })|raw }}
+    </div>
+
+  {% endif %}
+
+</div>

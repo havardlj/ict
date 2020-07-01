@@ -1,0 +1,12 @@
+<div class="md:site-margin-x md:site-margin-b site-padding bg-grey-lighter u-grid">
+  <div class="gsp-12">
+    <div class="text-center max-w-md md:mx-auto">
+      <h2 class="t-lg text-purple pb-site-ems-sm">{{ block.fieldHead }}</h2>
+      <div class="wysiwyg">{{ block.fieldRedactor }}</div>
+    </div>
+  </div>
+  <div class="gsp-12">
+    {% include '_includes/srcset' with { image: block.fieldMobileImageAsset[0], class: 'w-full h-auto', max: 'lg' } %}
+    {% include '_includes/srcset' with { image: block.fieldDesktopImageAsset[0], class: 'w-full h-auto', min: 'lg' } %}
+  </div>
+</div>

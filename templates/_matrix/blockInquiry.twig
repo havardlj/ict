@@ -1,0 +1,26 @@
+<div class="site-padding" id="inquiry">
+  
+  <div class="md:text-center md:mx-auto max-w-ems-md pb-gap lg:pb-site-md lg:pb-grid-gap">
+    <h2 class="t-lg text-purple pb-site-ems-sm">{{ block.fieldHead }}</h2>
+    <div class="wysiwyg">{{ block.fieldRedactor }}</div>
+  </div>
+  
+  <div class="u-grid">
+    <div class="gsp-12 sm:gs-3 sm:gsp-8 lg:gs-auto lg:gsp-6">
+      <ul class="t-lg text-purple md:text-center md:mx-auto lg:pt-site-lg">
+        <li>{{ block.fieldPhone }}</li>
+        <li>{{ block.fieldEmail }}</li>
+      </ul>
+    </div>
+    <div class="gsp-12 sm:gs-3 sm:gsp-8 lg:gs-auto lg:gsp-6 xl:gsp-5">
+      <form>
+        <input class="block w-full border p-4 mb-site-ems-sm" type="text" placeholder="Full name">
+        <input class="block w-full border p-4 mb-site-ems-sm" type="text" placeholder="Email">
+        <input class="block w-full border p-4 mb-site-ems-sm" type="text" placeholder="Company">
+        <button class="u-lg:w-full bg-purple text-white p-4">Submit</button>
+      </form>
+    </div>
+  </div>
+
+</div>
+
