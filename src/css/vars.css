@@ -1,0 +1,36 @@
+:root {
+
+  /* BASE */
+  --bg-color: theme('colors.background');
+  --color: theme('colors.black');
+  --transition: .3s;
+
+  --scroll-out-duration: 500ms;
+  --scroll-out-delay: 1500ms;
+  --scroll-out-offset-x: 4rem;
+  --scroll-out-offset-y: 2rem;
+
+  --site-xs: 1.425rem;
+  --site-sm: 2.5rem;
+  --site-md: 3rem;
+  --site-lg: 4rem;
+  --site-xl: 5rem;
+
+  --site-ems-sm: 1em;
+  --site-ems-md: 1.4em;
+
+  --container-spacing-x: 2rem;
+  --container-spacing-y: 5rem;
+  @screen lg {
+    --container-spacing-x: 2.5rem;
+    --container-spacing-y: 3.75rem;
+  }
+
+  --grid-gap-x: 1.3rem;
+  --grid-gap-y: 1.2rem;
+  @screen md {
+    --grid-gap-x: 1.5rem;
+    --grid-gap-y: 1.4rem;
+  }
+  
+}

@@ -1,0 +1,4 @@
+{
+  "buttons": ["format","link","undo"],
+  "formatting": ["p", "h2"]
+}

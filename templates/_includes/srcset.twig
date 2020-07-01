@@ -1,0 +1,114 @@
+{# variables: image, class, style, attr, crop, max, min #}
+
+{% spaceless %}
+
+	{% if image|length %}
+
+		{% set imageWidth = image.width %}
+		{% set imageHeight = image.height %}
+		{% set imgOptions = { quality: 100 } %}
+
+		{% set crop = crop|default(0) %}
+		{% if crop|length >= 3 %}
+
+			{% set crop = crop|split(':') %}
+			{% set cropRatio = crop[1] / crop[0] %}
+
+			{% set imgOptions = imgOptions|merge({
+				mode: 'crop', 
+				position:
+					image.focalPoint.x ~ '-' ~
+					image.focalPoint.y
+			}) %}
+
+		{% else %}
+			{% set crop = false %}
+		{% endif %}
+
+		{% set srcWidths = [380, 640, 768, 1024, 1280, 1800] %}
+		{% set max = max|default(srcWidths[srcWidths|length-1]) %}
+		{% set min = min|default(srcWidths[0]) %}
+		
+		{% set screens = ['xs', 'sm', 'md', 'lg', 'xl', 'full'] %}
+		{% for screen in screens %}
+			
+			{% if screen in max %}
+				{% set max =  srcWidths[loop.index0] %}
+				{% set class = class ~ ' ' ~ screen ~ ':hidden' %}
+			{% endif %}
+
+			{% if screen in min %}
+				{% set min = srcWidths[loop.index0] %}
+				{% set class = class ~ ' u-' ~ screen ~ ':hidden' %}
+			{% endif %}
+
+		{% endfor %}
+
+		{% set srcset = [] %}
+		{% set maxed = false %}
+
+		{% for width in srcWidths %}
+
+			{% if width <= max and width <= imageWidth %}
+				{% set srcsetOptions = imgOptions|merge({ width: width }) %}
+				{% if crop %}
+					{% set srcsetOptions = srcsetOptions|merge({ height: width * cropRatio }) %}
+				{% endif %}
+				{% set srcset = srcset|merge([image.url(srcsetOptions) ~ ' ' ~ width ~ 'w']) %}
+			{% endif %}
+
+			{% if image.width < max and imageWidth > width %}
+				{% set maxed = true %}
+			{% endif %}
+
+		{% endfor %}
+
+		{% if maxed == true %}
+			{% set srcsetOptions = imgOptions|merge({ width: imageWidth }) %}
+			{% if crop %}
+				{% set srcsetOptions = srcsetOptions|merge({ height: imageWidth * cropRatio }) %}
+			{% endif %}
+			{% set srcset = srcset|merge([image.url(srcsetOptions) ~ ' ' ~ imageWidth ~ 'w']) %}
+		{% endif %}
+
+		{% set srcOptions = imgOptions|merge({ width: srcWidths[1] }) %}
+		{% if crop %}
+			{% set srcOptions = srcOptions|merge({ height: srcWidths[1] * cropRatio }) %}
+		{% endif %}
+		
+		{% set src = image.url(srcOptions) %}
+
+		{% set srcOptionsLow = imgOptions|merge({ width: srcWidths[0] }) %}
+		{% if crop %}
+			{% set srcOptionsLow = srcOptionsLow|merge({ height: srcWidths[0] * cropRatio }) %}
+		{% endif %}
+		{% set srcLow = image.url(srcOptionsLow) %}
+
+		{% set srcset = srcset|join(', ') %}
+
+		<img
+			class="lazyload lazyload-class {{ class is defined ? class }}"
+			data-purge="xs:hidden u-xs:hidden sm:hidden u-sm:hidden md:hidden u-md:hidden lg:hidden u-lg:hidden xl:hidden u-xl:hidden full:hidden u-full:hidden"
+			style="{{ style is defined ? style }}"
+			alt="{{ image.title }}"
+			width="{{ imageWidth }}"
+			height="{{ imageHeight }}"
+			{{ crop ? 'data-crop="' ~ crop[0] ~ ':' ~ crop[1] ~ '"' }}
+			data-src="{{ src }}"
+			data-sizes="auto"
+			src="{{ src }}"
+			data-srcset="{{ srcset }}"
+			{{ attr is defined ? attr }}>
+		<noscript>
+			<img
+				src="{{ src }}"
+				alt="{{ image.title }}"
+				class="{{ class is defined ? class }}"
+				style="{{ style is defined ? style }}"
+				{{ attr is defined ? attr }}>
+		</noscript>
+	
+
+	{% endif %}
+
+{% endspaceless %}

@@ -1,0 +1,35 @@
+@font-face {
+  font-family: 'Formular';
+  font-weight: 400;
+  src:
+    url('/assets/fonts/formular.woff2') format("woff2"),
+    url('/assets/fonts/formular.woff') format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  font-weight: 400;
+  src:
+    url('/assets/fonts/space-grotesk-regular.woff2') format("woff2"),
+    url('/assets/fonts/space-grotesk-regular.woff') format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  font-weight: 600;
+  src:
+    url('/assets/fonts/space-grotesk-semibold.woff2') format("woff2"),
+    url('/assets/fonts/space-grotesk-semibold.woff') format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  font-weight: 700;
+  src:
+    url('/assets/fonts/space-grotesk-bold.woff2') format("woff2"),
+    url('/assets/fonts/space-grotesk-bold.woff') format("woff");
+  font-display: swap;
+}

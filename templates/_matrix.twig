@@ -1,0 +1,15 @@
+{% set prevBlock = false %}
+<!-- contentMatrix -->
+
+{% for block in matrix %}
+	{% set thisBlock = block.type.handle %}
+	<!-- {{ thisBlock }} -->
+		{% set firstBlock = loop.first ? true : false %}
+		{% set lastBlock = loop.last ? true : false %}
+		{% set nextBlock = matrix[loop.index] is defined ? matrix[loop.index].type.handle : false %}
+		{% include ['_matrix/' ~ thisBlock, '_matrix/default'] %}
+		{% set prevBlock = thisBlock %}
+	<!-- /{{ thisBlock }} -->
+{% endfor %}
+
+<!-- /contentMatrix -->
