@@ -33,7 +33,7 @@
     "gulp-replace": "^1.0.0",
     "install": "^0.13.0",
     "lazysizes": "^5.2.0",
-    "npm": "^6.14.1",
+    "npm": "^6.14.6",
     "object-fit-images": "^3.2.4",
     "postcss-each": "^0.10.0",
     "postcss-easy-import": "^3.0.0",
